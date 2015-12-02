@@ -67,8 +67,7 @@ angular.module('myApp.controllers', [])
       // make a DELETE request for this post
       $http.put('http://daretodiscover.herokuapp.com/wines/' + wine.id, wine)
         .success(function(response) {
-          console.log(response);
-          console.log(wine);
+          
           wine.editForm = false;
         })
         .error(function(response) {
