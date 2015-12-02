@@ -1,0 +1,51 @@
+<div>
+  <h3 class=''>Wines</h3>
+</div>
+<div ng-show="true">
+  <h3>create new wine</h3>
+<form class='form-group' ng-submit="createWine()">
+    <label for="">Name</label>
+    <input  class='form-control'type="text" ng-model="wine.name">
+    <label for="">Year</label>
+    <input  class='form-control'type="text" ng-model="wine.year">
+    <label for="">Description</label>
+    <textarea class='form-control' ng-model="wine.description"></textarea>
+    <label for="">Picture Url</label>
+    <input class='form-control' type="text" ng-model="wine.picture">
+    <button type="submit" class='btn btn-primary pull-right'>Save</button>
+</form>
+<br>
+</div>
+
+<div >
+  <h3>edit wine</h3>
+  <form class='form-group' ng-show="editing" ng-submit="editing = false">
+  
+    <label for="">Name</label>
+    <input  class='form-control'type="text" ng-model="wine.name">
+    <label for="">Year</label>
+    <input  class='form-control'type="text" ng-model="wine.year">
+    <label for="">Description</label>
+    <textarea class='form-control' ng-model="wine.description"></textarea>
+    <label for="">Picture Url</label>
+    <input class='form-control' type="text" ng-model="wine.picture">
+    <button type="submit" class='btn btn-primary pull-right'>Update</button>
+  </form>
+  <br>
+</div>
+
+<div ng-repeat="wine in wines" class="col-sm-10 col-sm-offset-1">
+  <div class="col-sm-3">
+    <img ng-src="{{wine.picture}}"></img>
+  </div>
+  <div class="col-sm-9">
+    <h3>{{wine.name}}</h3>
+    <h4>{{wine.year}}</h4>
+    <p>{{wine.description}}</p>
+    <br>
+    <a href="#" ng-click="deleteWine(wine, $index)"><i class="icon ion-close-circled pull-right"></a>
+    <a href="#" ng-click="wine.editForm = true"><i class="icon ion-edit"></i></a>
+  </div>
+</div>
+
+
